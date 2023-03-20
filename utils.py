@@ -578,7 +578,9 @@ class Utils():
         new = []
         stack = []
         for character in expression:
+            #print(character)
             if character != "?" and character != "+":
+                #print(character,expression)
                 new.append(character)
                 stack.append(character)
             elif character == "?":
@@ -587,8 +589,10 @@ class Utils():
                 new.append(str("("+x+"|ε)"))
                 stack = []
             elif character == "+":
+                #print(character,'entro',stack)
                 x = stack.pop()
                 if x == ")":
+                    #print(stack)
                     y = stack.pop()
                     op = stack.pop()
                     v = stack.pop()
